@@ -1,0 +1,94 @@
+main.js
+
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+})
+-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
+
+App.js
+
+<template>
+<div>
+
+  <div>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><router-link to='home'>Home</router-link></li>
+          <li><router-link to='login'>Login</router-link></li>
+          <li><router-link to='signup'>Sign Up</router-link></li>
+          <li><router-link to='secretquote'>Secret Quote</router-link></li>
+          <li><router-link to='login'>Logout</router-link></li>
+        </ul>
+      </div>
+    </nav>
+    </div>
+    <div class="container">
+      <router-view></router-view>
+    </div>
+
+  </div>
+
+
+</template>
+
+<script>
+export default {
+  name: 'app'
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+
+router/index.js
+
+import Vue from 'vue'
+import Router from 'vue-router'
+import Hello from '@/components/Hello'
+import Home from '@/components/Home'
+import SecretQuote from '@/components/SecretQuote'
+import Login from '@/components/Login'
+import Signup from '@/components/Signup'
+
+
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {path: '/',name: 'Hello',component: Hello},
+    {path: '/home',name: 'Home',component: Home},
+    {path: '/secretquote',name: 'secretquote',component: SecretQuote},
+    {path: '/login',name: 'login',component: Login},
+    {path: '/signup',name: 'signup',component: Signup},
+  ]
+})
+-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
